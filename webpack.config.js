@@ -42,10 +42,10 @@ module.exports = {
       // chunks: [], // use this to apply js files to certain files
 
     }),
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new MiniCssExtractPlugin({ filename: "css/[name].[hash].css" }),
   ],
   output: {
-    filename: "[name].[contenthash].js",
+    filename: "js/[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
