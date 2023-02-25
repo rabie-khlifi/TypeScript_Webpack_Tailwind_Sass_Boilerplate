@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
   entry: {
     bundle: path.resolve(__dirname, "src/js/index.ts"),
@@ -13,7 +14,19 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: [
+          'html-loader',
+          {
+            loader: 'posthtml-loader',
+            options: {
+              plugins: [
+                require('posthtml-include')({
+                  root: path.resolve(__dirname, 'src')
+                })
+              ]
+            }
+          }
+        ]
       },
       {
         test: /\.(svg|png|jpg|gif)$/,
