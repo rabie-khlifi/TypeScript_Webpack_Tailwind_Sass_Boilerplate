@@ -21,6 +21,7 @@ module.exports = {
             options: {
               plugins: [
                 require('posthtml-include')({
+                  // src inside partials shuld use the path as if its inside the file including it 
                   root: path.resolve(__dirname, 'src')
                 })
               ]
