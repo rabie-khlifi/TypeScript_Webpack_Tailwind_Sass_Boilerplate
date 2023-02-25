@@ -31,6 +31,17 @@ module.exports = {
             ],
           },
         },
+        generator: [
+          {
+            // You can apply generator using `?as=webp`, you can use any name and provide more options
+            preset: "webp",
+            implementation: ImageMinimizerPlugin.imageminGenerate,
+            options: {
+              // Please specify only one plugin here, multiple plugins will not work
+              plugins: ["imagemin-webp"],
+            },
+          },
+        ],
       }),
     ]
   },
