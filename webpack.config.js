@@ -36,6 +36,14 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.html$/,
+        use: ["html-loader"]
+      },
+      {
+        test: /\.(svg|png|jpg|gif)$/,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
@@ -58,6 +66,7 @@ module.exports = {
   output: {
     filename: "js/[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "assets/images/[name].[hash][ext]",
     clean: true,
   },
 };
